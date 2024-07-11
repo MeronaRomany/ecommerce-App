@@ -19,7 +19,8 @@ class onePage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 16.0),
-          child: ListView(children: [
+          child: ListView(
+            children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -44,7 +45,7 @@ class onePage extends StatelessWidget {
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),),
-
+              SizedBox(height: 10,),
             Container(
              height: 120,
 
@@ -68,13 +69,13 @@ class onePage extends StatelessWidget {
                    provider.sellingList;
                    Navigator.pushNamed(context, RouteName.twoPage);
                  },
-                 child: CustomSelling(title: sellingList[index].title, image: sellingList[index].image, price: sellingList[index].price)) ,
+                 child: CustomSelling(title: sellingList[index].title, image: sellingList[index].image, price: '${sellingList[index].price}')) ,
              itemCount: sellingList.length,
              physics: NeverScrollableScrollPhysics(),
              shrinkWrap: true,
              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
              crossAxisCount: 2,
-             mainAxisExtent: 310,
+             mainAxisExtent: 250,
              mainAxisSpacing: 10.0,
                crossAxisSpacing: 10.0,
 

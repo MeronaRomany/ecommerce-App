@@ -2,6 +2,7 @@ import 'package:ecommerce_ui/model/Catogoreies.dart';
 import 'package:ecommerce_ui/model/routes.dart';
 import 'package:ecommerce_ui/model/selling.dart';
 import 'package:ecommerce_ui/provider/MyAppProvider.dart';
+import 'package:ecommerce_ui/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,7 @@ class TwoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider= Provider.of<MyAppProivder>(context);
+    final cartProvider= Provider.of<CartProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -20,7 +22,7 @@ class TwoPage extends StatelessWidget {
             children: [
               ListTile(
                 leading: Icon(Icons.card_giftcard_outlined,),
-                title: Text("Detailes proudact",textAlign: TextAlign.center,),
+                title: Text("Proudact Detailes",textAlign: TextAlign.center,),
                 trailing: GestureDetector(
                     onTap: (){
                       Navigator.pushNamed(context, RouteName.cart);
@@ -52,7 +54,8 @@ class TwoPage extends StatelessWidget {
                       fontSize: 25,
                     ),),
 
-                    Text(sellingList[provider.item].price ,style: TextStyle(
+                    Text(
+                     ' ${sellingList[provider.item].price}',style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       color: Colors.orange,
@@ -63,7 +66,9 @@ class TwoPage extends StatelessWidget {
                       width: 200,
                       color: Colors.black,
                       child:  Center(
-                        child: TextButton(onPressed: (){},
+                        child: TextButton(onPressed: (){
+                          cartProvider.add(sellingList[provider.item]);
+                        },
                           child: Text('Add to Cart', style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25,

@@ -10,7 +10,7 @@ class CustomSelling extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color:Colors.grey,
+
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -18,15 +18,12 @@ class CustomSelling extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        Container(
-
-          color: Colors.grey,
-          child: Image.asset(image,
-          fit: BoxFit.cover,
-            height: 240,
-            width: MediaQuery.sizeOf(context).width*0.6,
-          ),
+        Image.asset(image,
+        fit: BoxFit.cover,
+          // height: 200,
+          // width:double.infinity,
         ),
+
            Text(title,style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 25,
